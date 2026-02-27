@@ -1,4 +1,4 @@
-package e2;
+package it.unibo.pps.e2;
 import org.junit.jupiter.api.*;
 
 public class LogicTest {

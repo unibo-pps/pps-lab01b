@@ -1,4 +1,4 @@
-package e3;
+package it.unibo.pps.e3;
 
 import javax.swing.*;
 import javax.swing.event.MouseInputAdapter;

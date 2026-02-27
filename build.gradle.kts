@@ -1,19 +1,38 @@
 plugins {
-    id("java")
+    alias(libs.plugins.java)
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "it.unibo.pps"
 
 repositories {
     mavenCentral()
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(rootProject.libs.versions.jdk.get())
+    }
+}
+
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation(platform(rootProject.libs.junit.bom))
+    testImplementation(rootProject.libs.junit.jupiter)
+    testRuntimeOnly(rootProject.libs.junit.launcher)
 }
 
 tasks.test {
     useJUnitPlatform()
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion.set(JavaLanguageVersion.of(rootProject.libs.versions.jdk.get()))
+    }
+}
+
+listOf("e2", "e3").forEach { exercise ->
+    tasks.register<JavaExec>(exercise) {
+        group = "application"
+        description = "Run the $exercise exercise"
+
+        classpath = sourceSets["main"].runtimeClasspath
+        mainClass.set("it.unibo.pps.$exercise.Main")
+    }
 }

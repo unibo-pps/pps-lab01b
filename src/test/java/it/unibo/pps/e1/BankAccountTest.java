@@ -1,5 +1,6 @@
-package e1;
+package it.unibo.pps.e1;
 
+import it.unibo.pps.e1.BankAccount;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

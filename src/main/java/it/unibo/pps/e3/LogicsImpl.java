@@ -1,4 +1,4 @@
-package e3;
+package it.unibo.pps.e3;
 
 public class LogicsImpl implements Logics {
 

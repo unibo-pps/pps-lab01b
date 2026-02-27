@@ -1,4 +1,4 @@
-package e3;
+package it.unibo.pps.e2;
 
 /*
  * A standard generic Pair<X,Y>, with getters, hashCode, equals, and toString well implemented. 
